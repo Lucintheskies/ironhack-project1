@@ -1,0 +1,28 @@
+/* Hero */
+.hero {
+  padding: 4rem 0;
+  text-align: center;
+  background: var(--primary-lighter);
+}
+.hero h1 { color: var(--primary); }
+
+/* Grid helpers */
+.card-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Responsive nav */
+.hamburger { background: none; border: none; font-size: 1.5rem; cursor: pointer; display: none; }
+.hidden    { display: none; }
+
+@media (max-width: 767px) {
+  .hamburger { display: block; }
+  .nav {
+    position: absolute; top: 60px; right: 0;
+    background: var(--white); border: 1px solid #eee;
+    width: 200px; padding: 1rem;
+ }
+  .nav ul { display: flex; flex-direction: column; gap: .5rem; }
+}
