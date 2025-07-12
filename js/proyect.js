@@ -49,6 +49,7 @@ if (navToggle) {
   });
 }
 
+
 // 2. Smooth scroll para enlaces internos 
 const internalLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
 internalLinks.forEach(link => {

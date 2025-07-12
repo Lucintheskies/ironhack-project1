@@ -1,20 +1,23 @@
-document.getElementById('menu-toggle')
-        .addEventListener('click', () =>
-          document.getElementById('main-nav').classList.toggle('hidden'));
+// Responsive Navbar Toggle
+const hamburger = document.getElementById('hamburger');
+const navbarMenu = document.getElementById('navbar-menu');
 
-// 1. Responsive Navbar Toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navList = document.querySelector('.nav-list');
+if (hamburger && navbarMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navbarMenu.classList.toggle('active');
+  });
 
-if (navToggle) {
-  navToggle.addEventListener('click', () => {
-    const opened = navList.classList.toggle('open');
-    navToggle.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', opened);
+  // Close menu when clicking on a link
+  document.querySelectorAll('.navbar-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navbarMenu.classList.remove('active');
+    });
   });
 }
 
-// 2. Smooth scroll para enlaces internos 
+// Smooth scroll para enlaces internos
 const internalLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
 internalLinks.forEach(link => {
   link.addEventListener('click', e => {
@@ -23,9 +26,19 @@ internalLinks.forEach(link => {
     if (targetEl) {
       e.preventDefault();
       targetEl.scrollIntoView({ behavior: 'smooth' });
-      navList.classList.remove('open');
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', false);
+      // Close mobile menu if open
+      if (hamburger && navbarMenu) {
+        hamburger.classList.remove('active');
+        navbarMenu.classList.remove('active');
+      }
     }
   });
 });
+
+// Function for project cards (if needed)
+function mostrarTextoSimplify() {
+  const texto = document.getElementById('texto-simplify');
+  if (texto) {
+    texto.style.display = texto.style.display === 'none' ? 'block' : 'none';
+  }
+}
