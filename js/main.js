@@ -25,7 +25,18 @@ internalLinks.forEach(link => {
     const targetEl = document.getElementById(targetID);
     if (targetEl) {
       e.preventDefault();
-      targetEl.scrollIntoView({ behavior: 'smooth' });
+      
+      // Calcular el offset del header
+      const headerHeight = 80;
+      const elementPosition = targetEl.offsetTop;
+      const offsetPosition = elementPosition - headerHeight;
+      
+      // Scroll suave con offset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
       // Close mobile menu if open
       if (hamburger && navbarMenu) {
         hamburger.classList.remove('active');
