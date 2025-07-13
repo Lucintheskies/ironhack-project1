@@ -108,6 +108,8 @@ body::before {
   border: none;
   cursor: pointer;
   padding: 0;
+  z-index: 1001;
+  position: relative;
 }
 
 .hamburger .bar {
@@ -116,6 +118,8 @@ body::before {
   background-color: var(--primary, #072ac8);
   margin: 3px 0;
   transition: 0.3s;
+  border-radius: 2px;
+  display: block;
 }
 
 .navbar-menu {
