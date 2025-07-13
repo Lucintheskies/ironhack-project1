@@ -29,7 +29,14 @@ internalLinks.forEach(link => {
       // Calcular el offset del header
       const headerHeight = 80;
       const elementPosition = targetEl.offsetTop;
-      const offsetPosition = elementPosition - headerHeight;
+      
+      // Para la sección hero (home), ir al top de la página
+      let offsetPosition;
+      if (targetID === 'hero') {
+        offsetPosition = 0;
+      } else {
+        offsetPosition = Math.max(0, elementPosition - headerHeight);
+      }
       
       // Scroll suave con offset
       window.scrollTo({
